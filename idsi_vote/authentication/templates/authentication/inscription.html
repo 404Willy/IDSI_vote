@@ -1,0 +1,66 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+<!-- Conteneur principal -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- image de la gauche -->
+        <div class="col-lg-6 col-md-6 d-none d-md-block infinity-image-container"></div>
+        <!-- fin image de la gauche -->
+
+        <!-- Conteneur du formulaire -->
+        <div class="col-lg-6 col-md-6 infinity-form-container">					
+            <!-- Début du formulaire -->
+            <div class="col-lg-9 col-md-12 col-sm-8 col-xs-12 infinity-form">
+                <!-- Logo de IDSI -->
+                <div class="text-center mb-3 mt-5">
+                    <img src="{% static 'unnamed.png' %}" width="150px">
+                </div>
+                <div class="text-center mb-4">
+                    <h4>Créer un compte</h4>
+                </div>
+                {% if form.errors %}
+                    {{ form.errors }}
+                {% endif %}
+                <!-- Formulaire -->
+                <form class="px-3" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <!-- Champs_de_création 
+                    
+                    <div class="form-input">
+                        <span><i class="fa fa-user"></i></span>
+                        <input type="text" name="matricule" placeholder="Matricule" required>
+                    </div>
+                    <div class="form-input">
+                        <span><i class="fa fa-user"></i></span>
+                        <input type="text" name="nom" placeholder="Nom" required>
+                    </div>
+                    <div class="form-input">
+                        <span><i class="fa fa-user"></i></span>
+                        <input type="text" name="prenom" placeholder="Prénom(s)" required>
+                    </div>
+                    <div class="form-input">
+                        <span><i class="fa fa-envelope"></i></span>
+                        <input type="email" name="email" placeholder="Mail institutionnel (xxx@inphb.ci)" required>
+                    </div>
+                    <div class="form-input">
+                        <span><i class="fa fa-lock"></i></span>
+                        <input type="password" name="plainPassword" placeholder="Mot de passe" required>
+                    </div>
+                     Boutton pour s'enregistrer -->
+                    <div class="mb-3"> 
+                        <button type="submit" class="btn btn-block">Créer un compte</button>
+                    </div>
+                    
+                    <div class="text-center mb-5" style="color: #777;">Designed by 
+                        <i><strong>WILLIAMS</strong></i> and <i><strong>KIGNON</strong></i>
+                    </div>
+                </form>
+            </div>
+            <!-- fin du formulaire -->
+        </div>
+        <!-- fin du contenaire du formulaire -->
+    </div>
+</div>	
+{% endblock %}
